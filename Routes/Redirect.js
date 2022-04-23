@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Data = require('../Models/Datamodel');
-const open = require('open')
 
 router.get('/:shorturl', async (req, res) => {
     try {
