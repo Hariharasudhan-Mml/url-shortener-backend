@@ -13,7 +13,9 @@ router.get('/:shorturl', async (req, res) => {
         }
         else {
             data.clicks++;
-    data.save().then(resp=>res.redirect(data.longURL) )
+    data.save().then(resp=>res.writeHead(301,{
+        Location:`https://${data.longURL}`
+    }) )
         }
     } catch (error) {
         res.json({ msg: error.message })
