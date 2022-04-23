@@ -15,7 +15,7 @@ router.get('/:shorturl', async (req, res) => {
             data.clicks++;
            await data.save()
             console.log(data.clicks)
-            await open(data.longURL)
+            await open(`http://${data.longURL}`)
             res.status(200)
         }
     } catch (error) {
