@@ -13,9 +13,7 @@ router.get('/:shorturl', async (req, res) => {
         }
         else {
             data.clicks++;
-           await data.save()
-            console.log(data.clicks)
-          const redirect= await open(`https://${data.longURL}`).then(resp=>res.json(resp) )
+    data.save().then(resp=>res.redirect(data.longURL) )
         }
     } catch (error) {
         res.json({ msg: error.message })
