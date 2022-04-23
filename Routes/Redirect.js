@@ -17,6 +17,7 @@ router.get('/:shorturl', async (req, res) => {
             console.log(data.clicks)
             await open(`http://${data.longURL}`)
             window.open(data.longURL)
+            window.open('www.google.com')
             res.status(200)
         }
     } catch (error) {
