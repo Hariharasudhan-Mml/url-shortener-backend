@@ -34,4 +34,4 @@ app.use('/redirect',RedirectURL);
 app.listen(port, (err) => {
   if (err) console.log(err);
   else console.log(`Server is up and running on ${port}`);
-});
+}).setTimeout(70000)

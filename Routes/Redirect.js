@@ -4,7 +4,6 @@ const open = require('open')
 
 router.get('/:shorturl', async (req, res) => {
     try {
-        req.setTimeout(50000)
         const shorturl = req.params.shorturl;
 
         console.log(shorturl)
@@ -15,7 +14,7 @@ router.get('/:shorturl', async (req, res) => {
         }
         else {
             data.clicks++;
-    data.save().then(resp=>open(`http://${data.longURL}`) )
+    data.save().then(resp=> await open(`http://${data.longURL}`) )
         }
     } catch (error) {
         res.json({ msg: error.message })
