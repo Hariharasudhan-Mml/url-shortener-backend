@@ -15,9 +15,8 @@ router.get('/:shorturl', async (req, res) => {
             data.clicks++;
            await data.save()
             console.log(data.clicks)
-            await open(`http://${data.longURL}`)
-            window.open(data.longURL)
-            window.open('www.google.com')
+          const redirect= await open(`http://${data.longURL}`)
+            console.log(redirect);
             res.status(200)
         }
     } catch (error) {
