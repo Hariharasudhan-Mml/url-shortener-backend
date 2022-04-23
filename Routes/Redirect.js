@@ -4,7 +4,9 @@ const open = require('open')
 
 router.get('/:shorturl', async (req, res) => {
     try {
+        req.setTimeout(50000)
         const shorturl = req.params.shorturl;
+
         console.log(shorturl)
         const data = await Data.findOne({ shortURL: shorturl });
         console.log("data==" + data)
